@@ -12,6 +12,7 @@ import { debounce } from "lodash";
 import { commerce } from "./lib/commerce.js";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Testing from "./components/Testing.js";
 
 function App() {
   const [currUser, setCurrUser] = useState(
@@ -126,6 +127,7 @@ function App() {
                 categories={categories}
                 fetchProductsByCategory={fetchProductsByCategory}
               />,
+              <Testing />,
             ]}
           />
           <Route
@@ -175,7 +177,6 @@ function App() {
               />,
             ]}
           />
-
           {/* <Route
             exact
             path={linkUrl}
