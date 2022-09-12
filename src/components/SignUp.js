@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Login() {
+function SignUp() {
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState({
     fname: "",
@@ -205,4 +205,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;

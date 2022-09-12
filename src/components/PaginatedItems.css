@@ -1,0 +1,13 @@
+.paginate {
+    list-style-type: none;
+display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.paginate > li {
+    padding: 10px;
+    cursor: pointer;
+}
+.selected {
+    color: red
+}

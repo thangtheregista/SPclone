@@ -163,7 +163,7 @@ function SignIn({ setIsLogged }) {
               <p>{formErrors.password}</p>
               <button type="submit">login</button>
               <p className="message">
-                Not registered? <a href="#">Create an account</a>
+                Not registered? <a href="/login">Create an account</a>
               </p>
             </form>
           </div>

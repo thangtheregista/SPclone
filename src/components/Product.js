@@ -2,7 +2,7 @@ import React from "react";
 import "./Product.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-function Product({ product, handleAddToCart, linkUrl }) {
+function Product({ product, handleAddToCart }) {
   return (
     <a href="#" className="product-wrapper">
       {/* <div className="product-container">
@@ -36,9 +36,9 @@ function Product({ product, handleAddToCart, linkUrl }) {
           </div>
         </div>
         <div className="product__info">
-          <Link to={linkUrl}>
+          
             <p className="product__info--name">{product.name}</p>
-          </Link>
+          
           <span className="product__info--price">
             {product.price.formatted_with_symbol}
           </span>

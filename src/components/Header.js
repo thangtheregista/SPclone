@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.css";
-// import { Link } from "react-router-dom";
 
 import {
   BsFacebook,
@@ -30,16 +29,9 @@ function Header({
   setIsLogged,
   currUser,
 }) {
-  // const [cart, setCart] = useState({});
-
-  // const fetchCart = async () => {
-  //   const data = await commerce.cart.retrieve();
-  //   setCart(data);
-  // };
   useEffect(() => {
     fetchCart();
   }, []);
-  // console.log(cart.total_items);
   return (
     <div className="header">
       <div className="header-container-wrapper">
@@ -116,7 +108,6 @@ function Header({
               <div>
                 <li className="nav-links">
                   <a className="nav__language" href="#">
-                    {/* <BsGlobe /> */}
                     Hello {currUser.fname}
                     <BsChevronCompactDown />
                     <div className="language-container">
@@ -128,7 +119,6 @@ function Header({
                       >
                         Đăng xuất
                       </div>
-                      {/* <div className="language">Tiếng Anh</div> */}
                     </div>
                   </a>
                 </li>
@@ -136,7 +126,7 @@ function Header({
             ) : (
               <div className="log-container">
                 <li className="nav-links">
-                  <Link to="/login">
+                  <Link to="/signup">
                     <a href="#">Đăng Ký</a>
                   </Link>
                 </li>
