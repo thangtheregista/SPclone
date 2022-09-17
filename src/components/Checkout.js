@@ -24,7 +24,7 @@ function Checkout({
   const [order, setOrder] = useState({});
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  // const [isOrdered, setIsOrdered] = useState(false);
+
   const [token, setToken] = useState({});
   const generateCheckoutToken = async () => {
     if (cart.id) {
@@ -112,7 +112,7 @@ function Checkout({
         },
       },
     };
-    // console.log(orderData);
+
     try {
       const incomingOrder = await commerce.checkout.capture(
         checkoutToken.id,
@@ -136,7 +136,7 @@ function Checkout({
       setUser(currUser);
     }
   }, []);
-  // console.log(token);
+
   return (
     <div>
       {isOrdered ? (
@@ -144,7 +144,6 @@ function Checkout({
           order={order}
           setOrder={setOrder}
           setIsOrdered={setIsOrdered}
-          // handleDeleteCart={handleDeleteCart}
         />
       ) : (
         <CustomerForm

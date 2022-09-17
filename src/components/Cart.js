@@ -19,7 +19,7 @@ function Cart({
       {cart.line_items && cart.line_items.length === 0 && (
         <div>
           There is nothing in the cart.
-          <Link to="/">
+          <Link to="/SPclone">
             <button>Back to home.</button>{" "}
           </Link>
         </div>
@@ -66,7 +66,7 @@ function Cart({
           >
             Empty Cart
           </button>
-          <Link to="/checkout">
+          <Link to="/SPclone/checkout">
             <button
               onClick={() => {
                 setIsOrdered(false);

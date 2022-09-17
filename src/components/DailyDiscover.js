@@ -1,11 +1,10 @@
 import React from "react";
 import "./DailyDiscover.css";
 import Product from "./Product.js";
-import { commerce } from "../lib/commerce.js";
-import { useState, useEffect } from "react";
+
+import { useEffect } from "react";
 
 function DailyDiscover({ handleAddToCart, products, currentItems }) {
-  
   useEffect(() => {
     console.log(currentItems);
   }, [currentItems, products]);
@@ -22,12 +21,6 @@ function DailyDiscover({ handleAddToCart, products, currentItems }) {
               />
             );
           })}
-        {/* <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product /> */}
       </div>
     </div>
   );

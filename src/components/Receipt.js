@@ -11,7 +11,7 @@ function Receipt({ order, setOrder, setIsOrdered }) {
         " " +
         order.customer.lastname +
         " for your purchase."}
-      <Link to="/">
+      <Link to="/SPclone">
         <button
           onClick={() => {
             setIsOrdered(false);

@@ -78,7 +78,6 @@ function App() {
       setProducts(data);
     }
   }, 1000);
-  
 
   useEffect(() => {
     fetchProducts();
@@ -88,20 +87,20 @@ function App() {
   useEffect(() => {
     console.log(currUser);
   }, [isLogged]);
- 
+
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/SPclone/signup" element={<SignUp />} />
           <Route
             exact
-            path="/signin"
+            path="/SPclone/signin"
             element={<SignIn setIsLogged={setIsLogged} />}
           />
           <Route
             exact
-            path="/"
+            path="/SPclone"
             element={[
               <Header
                 cart={cart}
@@ -117,13 +116,17 @@ function App() {
                 products={products}
                 categories={categories}
                 fetchProductsByCategory={fetchProductsByCategory}
-              />,<PaginatedItems itemsPerPage={2}                 handleAddToCart={handleAddToCart}
-              products={products}/>
+              />,
+              <PaginatedItems
+                itemsPerPage={2}
+                handleAddToCart={handleAddToCart}
+                products={products}
+              />,
             ]}
-          />  
+          />
           <Route
             exact
-            path="/cart"
+            path="/SPclone/cart"
             element={[
               <Header
                 cart={cart}
@@ -146,7 +149,7 @@ function App() {
           />
           <Route
             exact
-            path="/checkout"
+            path="/SPclone/checkout"
             element={[
               <Header
                 cart={cart}
@@ -173,7 +176,5 @@ function App() {
     </Router>
   );
 }
-
-
 
 export default App;

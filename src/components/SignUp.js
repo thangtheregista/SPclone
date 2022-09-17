@@ -13,7 +13,7 @@ function SignUp() {
     city: "",
     address: "",
   });
-  // const [prevUsers, setUsers] = useState([]);
+
   const [prevUsers, setPrevUsers] = useState([{}]);
   const [isSubmit, setIsSubmit] = useState(false);
   const handleSubmit = (e) => {
@@ -24,22 +24,10 @@ function SignUp() {
       setIsSubmit(true);
       if (Object.keys(prevUsers[0]).length === 0) {
         setPrevUsers([user]);
-        // console.log("hello");
       } else {
         setPrevUsers([...prevUsers, user]);
-        // localStorage.setItem("users", JSON.stringify(prevUsers));
       }
     }
-    // const errors = validate(user);
-    // setFormErrors(errors);
-    // if (Object.keys(errors).length === 0) {
-    //   setIsSubmit(true);
-    //   // setUsers([...prevUsers, user]);
-    //   setPrevUsers([...prevUsers, user]);
-    //   // localStorage.setItem("prevUsers", JSON.stringify(prevUsers));
-    //   // localStorage.getItem("prevUsers");
-    // }
-    // console.log(prevUsers);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -96,7 +84,6 @@ function SignUp() {
     return errors;
   };
   useEffect(() => {
-    // console.log(localStorage.getItem("prevUsers"));
     if (JSON.parse(localStorage.getItem("users")) !== null) {
       const oUser = JSON.parse(localStorage.getItem("users"));
       setPrevUsers(oUser);
@@ -106,26 +93,19 @@ function SignUp() {
       console.log(oUser);
     }
   }, []);
-  // console.log();
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      // console.log(localStorage.getItem("prevUsers"));
-      // console.log(prevUsers);
       localStorage.setItem("users", JSON.stringify(prevUsers));
       const oUser = JSON.parse(localStorage.getItem("users"));
 
       console.log(oUser);
-      // console.log(prevUsers);
     }
   }, [formErrors, user]);
-  // console.log(user);
-  // console.log(prevUsers);
-  // localStorage.clear();
 
   return (
     <div>
-      <Link to="/">
+      <Link to="/SPclone">
         <a href="#">Back to Home</a>
       </Link>
       Login
@@ -196,7 +176,7 @@ function SignUp() {
         <button type="submit">Sign Up</button>{" "}
         <div>
           Have an account?{" "}
-          <Link to="/signin">
+          <Link to="/SPclone/signin">
             <a href="">Sign In</a>
           </Link>
         </div>

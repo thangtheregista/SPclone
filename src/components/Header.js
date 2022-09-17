@@ -15,11 +15,10 @@ import logo from "../images/pngaaa.com-4486128.png";
 import qr from "../images/d91264e165ed6facc6178994d5afae79.png";
 import appstore from "../images/appstore.png";
 import google from "../images/google.png";
-import { commerce } from "../lib/commerce.js";
 
 import { Link } from "react-router-dom";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 function Header({
   cart,
   fetchProducts,
@@ -126,12 +125,12 @@ function Header({
             ) : (
               <div className="log-container">
                 <li className="nav-links">
-                  <Link to="/signup">
+                  <Link to="/SPclone/signup">
                     <a href="#">Đăng Ký</a>
                   </Link>
                 </li>
                 <li className="nav-links">
-                  <Link to="/signin">
+                  <Link to="/SPclone/signin">
                     <a href="#">Đăng Nhập</a>
                   </Link>
                 </li>
@@ -143,7 +142,7 @@ function Header({
           <div className="navbar-with-search-container">
             <div className="logo-wrapper">
               <a className="logo" href="#">
-                <Link to="/#">
+                <Link to="/SPclone">
                   <img
                     src={logo}
                     onClick={() => {
@@ -202,7 +201,7 @@ function Header({
             </div>
             <div className="cart-wrapper">
               <a className="cart" href="#">
-                <Link to="/cart">
+                <Link to="/SPclone/cart">
                   <BsCart2
                     onClick={() => {
                       fetchCart();

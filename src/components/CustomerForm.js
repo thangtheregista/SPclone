@@ -10,7 +10,6 @@ function CustomerForm({
   handleCaptureCheckout,
   user,
   setUser,
-  setCart,
 }) {
   return (
     <div>

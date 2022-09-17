@@ -21,66 +21,8 @@ function Categories({ categories, fetchProductsByCategory }) {
             </p>
           );
         })}
-        {/* <p className="sortbar__option--item sortbar__option--selected">
-          Phổ biến
-        </p> */}
-        {/* <p className="sortbar__option--item">Mới nhất</p>
-        <p className="sortbar__option--item">Bán chạy</p> */}
-        {/* <div className="status-box navbar--button">
-          <p className="status-box--placeholder">Giá</p>
-          <i className="fas fa-chevron-down status-box--arrow-down"></i>
-          <div className="status-box--menu navbar__subnav">
-            <p>Giá: Thấp đến Cao</p>
-            <p>Giá: Cao đến Thấp</p>
-          </div>
-        </div> */}
       </div>
     </div>
-    // <div className="categories-container">
-    //   <div className="categories-header">Danh mục</div>
-    //   <ul className="categories-items-container">
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //     <li className="categories-columns">
-    //       <CategoryItem />
-    //       <CategoryItem />
-    //     </li>
-    //   </ul>
-    // </div>
   );
 }
 
