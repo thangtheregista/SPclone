@@ -25,11 +25,12 @@ function Header({
   textbounce,
   fetchCart,
   isLogged,
-  setIsLogged,
+
   currUser,
+  deleteCurrentUser,
 }) {
   useEffect(() => {
-    fetchCart();
+    // fetchCart();
   }, []);
   return (
     <div className="header">
@@ -37,7 +38,11 @@ function Header({
         <div className="navbar-top-container">
           <ul className="navbar-top-left">
             <li className="nav-links">
-              <a href="#">Kênh Người Bán</a>
+              <a href="#">
+                <p>
+                  <Link to="/SPclone/users">Kênh Người Bán</Link>
+                </p>
+              </a>
             </li>
             <li className="nav-links">
               <a href="#">Trở thành Người bán Shoppee</a>
@@ -113,7 +118,7 @@ function Header({
                       <div
                         className="language"
                         onClick={() => {
-                          setIsLogged(false);
+                          deleteCurrentUser();
                         }}
                       >
                         Đăng xuất
@@ -169,7 +174,6 @@ function Header({
                   <BsSearch />
                 </button>
               </form>
-
               <div className="suggestions-links-container-wrapper">
                 <ul className="suggestions-links-container">
                   <li className="nav-links">

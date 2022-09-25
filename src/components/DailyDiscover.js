@@ -17,6 +17,7 @@ function DailyDiscover({ handleAddToCart, products, currentItems }) {
               <Product
                 key={product.id}
                 product={product}
+                image={product.image.url}
                 handleAddToCart={handleAddToCart}
               />
             );

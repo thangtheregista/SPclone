@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./SignIn.css";
 
-function SignIn({ setIsLogged }) {
+function SignIn({ setIsLogged, users }) {
   const [formErrors, setFormErrors] = useState({});
-  const oUser = JSON.parse(localStorage.getItem("users"));
-  const [prevUsers, setPrevUsers] = useState(oUser);
   const [isSubmit, setIsSubmit] = useState(false);
   const [user, setUser] = useState({
     fname: "",
@@ -17,26 +15,27 @@ function SignIn({ setIsLogged }) {
     city: "",
     address: "",
   });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
   const handleSubmit = (e) => {
+    console.log(users);
     e.preventDefault();
     const errors = validate(user);
     setFormErrors(errors);
     if (Object.keys(errors).length === 0) {
       setIsSubmit(true);
       setIsLogged(true);
-      const currUser = prevUsers
+      const currUser = users
         .filter((currUser) => currUser.email === user.email)
         .find((e) => e.password === user.password);
 
       localStorage.setItem("current-user", JSON.stringify(currUser));
     }
   };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-  };
+
   const validate = (values) => {
-    console.log(values);
     const errors = {};
     const e_regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
@@ -45,7 +44,7 @@ function SignIn({ setIsLogged }) {
       errors.email = "Email is required!";
     } else if (!e_regex.test(values.email)) {
       errors.email = "This is not a valid email format!";
-    } else if (!prevUsers.find((user) => user.email !== values.email)) {
+    } else if (!users.find((user) => user.email !== values.email)) {
       errors.email = "Wrong Email";
     }
     if (!values.password) {
@@ -54,7 +53,7 @@ function SignIn({ setIsLogged }) {
       errors.password =
         "Minimum eight characters, at least one letter and one number:";
     } else if (
-      !prevUsers
+      !users
         .filter((user) => user.email === values.email)
         .find((e) => e.password === values.password)
     ) {
@@ -63,9 +62,9 @@ function SignIn({ setIsLogged }) {
     return errors;
   };
   useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-    }
-  }, [oUser]);
+    // if (Object.keys(formErrors).length === 0 && isSubmit) {
+    // }
+  }, []);
 
   return (
     <div>
@@ -100,6 +99,7 @@ function SignIn({ setIsLogged }) {
                 Not registered? <a href="/SPclone/signup">Create an account</a>
               </p>
             </form>
+            <Link to="/SPclone/">Back to home</Link>
           </div>
         </div>
       )}

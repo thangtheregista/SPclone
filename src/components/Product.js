@@ -1,12 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Product.css";
 
-function Product({ product, handleAddToCart }) {
+function Product({ product, handleAddToCart, image }) {
   return (
     <a href="#" className="product-wrapper">
       <div className="product-item__box">
         <div className="product__img">
-          <img src="https://i.imgur.com/1vhzqnH.jpeg" alt="" />
+          <Link to={`${product.id}`}>
+            <img src={image} alt="" />
+          </Link>
+
           <div className="product__img-favourite-label">
             <p>Yêu thích</p>
           </div>
@@ -16,7 +20,9 @@ function Product({ product, handleAddToCart }) {
           </div>
         </div>
         <div className="product__info">
-          <p className="product__info--name">{product.name}</p>
+          <Link to={`${product.id}`}>
+            <p className="product__info--name">{product.name}</p>
+          </Link>
 
           <span className="product__info--price">
             {product.price.formatted_with_symbol}

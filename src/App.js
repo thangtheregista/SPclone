@@ -13,12 +13,23 @@ import { useState, useEffect } from "react";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import PaginatedItems from "./components/PaginatedItems";
+import Users from "./components/Users";
+import ProductView from "./components/ProductView";
 
 function App() {
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users"))); //all users
+  const [isSubmit, setIsSubmit] = useState(false); //submit new user
+
   const [currUser, setCurrUser] = useState(
     JSON.parse(localStorage.getItem("current-user"))
-  );
-  const [isLogged, setIsLogged] = useState(false);
+  ); //get current user
+  const deleteCurrentUser = () => {
+    setCurrUser(null);
+    localStorage.setItem("current-user", null);
+    setIsLogged(false);
+  }; // delete current user
+  const [isLogged, setIsLogged] = useState(false); // user log
+
   const [cart, setCart] = useState({});
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -26,7 +37,6 @@ function App() {
   const productsURL = (productID) => {
     return `/product/` + productID;
   };
-
   const fetchProductsByCategory = async (category_slugs) => {
     const { data } = await commerce.products.list({
       category_slug: [category_slugs],
@@ -68,7 +78,6 @@ function App() {
   const handleDeleteCart = async () => {
     const item = await commerce.cart.refresh();
     setCart(item.cart);
-    console.log(item);
   };
   const textbounce = debounce(async (text) => {
     if (text.length > 2) {
@@ -79,24 +88,46 @@ function App() {
     }
   }, 1000);
 
+  const deleteUser = (email) => {
+    const newUsers = users.filter((user) => {
+      if (user.email == email) {
+        return false;
+      } else return true;
+    });
+    setUsers(newUsers);
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchCart();
     fetchCategories();
+    console.log(localStorage);
   }, [isOrdered]);
   useEffect(() => {
-    console.log(currUser);
-  }, [isLogged]);
+    // console.log(currUser);
+    // localStorage.setItem("users", JSON.stringify(users));
+  }, [isLogged, users]);
 
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/SPclone/signup" element={<SignUp />} />
+          <Route
+            exact
+            path="/SPclone/signup"
+            element={
+              <SignUp
+                users={users}
+                setUsers={setUsers}
+                isSubmit={isSubmit}
+                setIsSubmit={setIsSubmit}
+              />
+            }
+          />
           <Route
             exact
             path="/SPclone/signin"
-            element={<SignIn setIsLogged={setIsLogged} />}
+            element={<SignIn setIsLogged={setIsLogged} users={users} />}
           />
           <Route
             exact
@@ -110,6 +141,7 @@ function App() {
                 isLogged={isLogged}
                 currUser={currUser}
                 setIsLogged={setIsLogged}
+                deleteCurrentUser={deleteCurrentUser}
               />,
               <HomePage
                 handleAddToCart={handleAddToCart}
@@ -171,6 +203,38 @@ function App() {
               />,
             ]}
           />
+          <Route
+            exact
+            path="/SPclone/users"
+            element={[
+              <Header
+                cart={cart}
+                fetchCart={fetchCart}
+                textbounce={textbounce}
+                fetchProducts={fetchProducts}
+                isLogged={isLogged}
+                currUser={currUser}
+                setIsLogged={setIsLogged}
+              />,
+              <Users users={users} deleteUser={deleteUser} />,
+            ]}
+          />
+          <Route
+            exact
+            path="/SPclone/:id"
+            element={[
+              <Header
+                cart={cart}
+                fetchCart={fetchCart}
+                textbounce={textbounce}
+                fetchProducts={fetchProducts}
+                isLogged={isLogged}
+                currUser={currUser}
+                setIsLogged={setIsLogged}
+              />,
+              <ProductView handleAddToCart={handleAddToCart} />,
+            ]}
+          ></Route>
         </Routes>
       </div>
     </Router>
