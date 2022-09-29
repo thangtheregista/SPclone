@@ -114,7 +114,9 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  text-decoration: none;
 }
+
 .product__info--price {
   display: flex;
   font-size: 1.4rem;

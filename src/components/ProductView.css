@@ -1,0 +1,37 @@
+.product-view {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 0;
+    justify-content: center;
+}
+.product-img img {
+   width: 600px;
+   height: 100%;
+}
+.product-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 50px;
+    font-size: x-large;
+}
+.product-price {
+    color: red;
+}
+.product-button  {
+    align-self: flex-end
+    ;
+    margin-right: 50px;
+}
+.product-button button {
+    width: 100%;
+        cursor: pointer;
+        background: #000;
+        color: #fff;
+        display: block;
+        border: none;
+        outline: none;
+        padding: 10px;
+}

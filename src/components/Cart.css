@@ -1,0 +1,23 @@
+.cart-items {
+        max-width: 1200px;
+        margin: auto;
+}
+.item-details img {
+    width: 200px;
+}
+.item-details {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    padding: 20px;
+    text-align: justify;
+}
+.item-details h3 {
+    width: 400px;
+}
+.button-group button {
+    cursor: pointer;
+}
+.total  {
+    text-align: right;
+}

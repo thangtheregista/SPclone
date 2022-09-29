@@ -34,9 +34,7 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [isOrdered, setIsOrdered] = useState(false);
-  const productsURL = (productID) => {
-    return `/product/` + productID;
-  };
+
   const fetchProductsByCategory = async (category_slugs) => {
     const { data } = await commerce.products.list({
       category_slug: [category_slugs],

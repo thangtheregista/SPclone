@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import "./SignUp.css";
 function SignUp({ users, setUsers, isSubmit, setIsSubmit }) {
   const [formErrors, setFormErrors] = useState({});
 
@@ -87,12 +87,9 @@ function SignUp({ users, setUsers, isSubmit, setIsSubmit }) {
   }, [isSubmit]);
 
   return (
-    <div>
-      <Link to="/SPclone">
-        <a href="#">Back to Home</a>
-      </Link>
+    <div className="sign-up">
       {!isSubmit && (
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <label for="fname">First name:</label>
           <br />
           <input type="text" id="fname" name="fname" onChange={handleChange} />
@@ -163,6 +160,9 @@ function SignUp({ users, setUsers, isSubmit, setIsSubmit }) {
               <a href="">Sign In</a>
             </Link>
           </div>
+          <Link to="/SPclone">
+            <a href="#">Back to Home</a>
+          </Link>
         </form>
       )}
     </div>
