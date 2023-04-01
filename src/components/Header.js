@@ -15,6 +15,7 @@ import logo from "../images/pngaaa.com-4486128.png";
 import qr from "../images/d91264e165ed6facc6178994d5afae79.png";
 import appstore from "../images/appstore.png";
 import google from "../images/google.png";
+import logo2 from "../images/unnamed.png";
 
 import { Link } from "react-router-dom";
 
@@ -25,7 +26,6 @@ function Header({
   textbounce,
   fetchCart,
   isLogged,
-
   currUser,
   deleteCurrentUser,
 }) {
@@ -36,78 +36,7 @@ function Header({
     <div className="header">
       <div className="header-container-wrapper">
         <div className="navbar-top-container">
-          <ul className="navbar-top-left">
-            <li className="nav-links">
-              <a href="#">
-                <p>
-                  <Link to="/SPclone/users">Kênh Người Bán</Link>
-                </p>
-              </a>
-            </li>
-            <li className="nav-links">
-              <a href="#">Trở thành Người bán Shoppee</a>
-            </li>
-            <li className="nav-links ">
-              <a className="nav__download-nav" href="#">
-                Tải ứng dụng
-                <div className="download-container">
-                  <img className="download-qr" src={qr} alt="Download QR" />
-                  <div className="store-container">
-                    <a href="#">
-                      <img
-                        className="download-app-store"
-                        src={appstore}
-                        alt="App Store"
-                      />
-                    </a>
-                    <a href="#">
-                      <img src={google} />
-                    </a>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li className="nav-links">
-              <a href="#">
-                Kết nối <BsFacebook /> <BsInstagram />
-              </a>
-            </li>
-          </ul>
           <ul className="navbar-top-right">
-            <li className="nav-links">
-              <a className="nav__notify" href="#">
-                <BsBell />
-                Thông báo
-                <div className="notify-container">
-                  <div className="notify-log">Đăng nhập để xem thông báo</div>
-                  <div className="notify-sub-links">
-                    <div className="notify-button">
-                      <a href="#">Đăng nhập</a>
-                    </div>
-                    <div className="notify-button">
-                      <a href="#">Đăng ký</a>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li className="nav-links">
-              <a href="#">
-                <BsQuestionCircle />
-                Hỗ trợ
-              </a>
-            </li>
-            <li className="nav-links">
-              <a className="nav__language" href="#">
-                <BsGlobe />
-                Tiếng Việt
-                <BsChevronCompactDown />
-                <div className="language-container">
-                  <div className="language">Tiếng Việt</div>
-                  <div className="language">Tiếng Anh</div>
-                </div>
-              </a>
-            </li>
             {isLogged ? (
               <div>
                 <li className="nav-links">
@@ -162,46 +91,19 @@ function Header({
                 <input
                   type="text"
                   className="form-search"
-                  placeholder="P&G TUNG SIÊU VOUCHER 150K"
+                  // placeholder="P&G TUNG SIÊU VOUCHER 150K"
                   onChange={(e) => {
                     textbounce(e.target.value);
                   }}
                 />
-                <div className="search-results-container">
+                {/* <div className="search-results-container">
                   <div>P&G TUNG SIÊU VOUCHER 150K</div>
-                </div>
+                </div> */}
                 <button type="button" className="btn search-btn">
                   <BsSearch />
                 </button>
               </form>
-              <div className="suggestions-links-container-wrapper">
-                <ul className="suggestions-links-container">
-                  <li className="nav-links">
-                    <a href="#">Váy</a>
-                  </li>
-                  <li className="nav-links">
-                    <a href="#">Dép</a>
-                  </li>
-                  <li className="nav-links">
-                    <a href="#">Dép Nữ</a>
-                  </li>
-                  <li className="nav-links">
-                    <a href="#">Áo Phông</a>
-                  </li>
-                  <li className="nav-links">
-                    <a href="#">Áo Croptop</a>
-                  </li>
-                  <li className="nav-links">
-                    <a href="#">Túi Xách Nữ</a>
-                  </li>
-                  <li className="nav-links">
-                    <a href="#">Túi Đeo Chéo</a>
-                  </li>
-                  <li className="nav-links">
-                    <a href="#">Áo Thun</a>
-                  </li>
-                </ul>
-              </div>
+              <div className="suggestions-links-container-wrapper"></div>
             </div>
             <div className="cart-wrapper">
               <a className="cart" href="#">
@@ -215,7 +117,6 @@ function Header({
                 <div className="usermode navsearch__cart--label">
                   {cart && cart.total_items}
                 </div>
-                <div className="cart-container">Chưa có sản phẩm</div>
               </a>
             </div>
           </div>

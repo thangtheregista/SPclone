@@ -148,7 +148,7 @@ function App() {
                 fetchProductsByCategory={fetchProductsByCategory}
               />,
               <PaginatedItems
-                itemsPerPage={2}
+                itemsPerPage={8}
                 handleAddToCart={handleAddToCart}
                 products={products}
               />,
