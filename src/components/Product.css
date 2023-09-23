@@ -139,3 +139,12 @@
   margin-top: 7px;
   color: rgba(0, 0, 0, 0.65);
 }
+.add-to-cart-button {
+  background-color: #008CBA;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}

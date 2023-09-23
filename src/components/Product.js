@@ -30,6 +30,7 @@ function Product({ product, handleAddToCart, image }) {
           <div className="product__quality"></div>
           <span className="product__info--place">
             <button
+              className="add-to-cart-buttona"
               onClick={() => {
                 handleAddToCart(product.id, 1);
               }}

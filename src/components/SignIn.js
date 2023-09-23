@@ -95,8 +95,11 @@ function SignIn({ setIsLogged, users }) {
               />
               <p>{formErrors.password}</p>
               <button type="submit">login</button>
-              <p className="message">
+              {/* <p className="message">
                 Not registered? <a href="/SPclone/signup">Create an account</a>
+              </p> */}
+              <p className="message">
+                Not registered? <Link to="/SPclone/signup">Back to home</Link>
               </p>
             </form>
             <Link to="/SPclone/">Back to home</Link>
